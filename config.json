@@ -3,15 +3,111 @@
     "titulo_pagina": "Gestão de Carreira | IFG",
     "favicon_url": "assets/favicon.ico",
     "logo_url": "assets/logo-ifg-brutal.svg",
-    "hero_titulo": "AGENDA DE PALESTRAS 2026",
-    "subtitulo": "Bacharelado em Sistemas de Informação · IFG Câmpus Goiânia",
-    "semestre": "SEMESTRE 2026/1",
-    "local": "Auditório Demartin Bizerra & Transmissão YouTube IFG",
+    "hero_titulo": "CARREIRAS EM TI 2026",
+    "subtitulo": "Encontros de Gestão de Carreira · Bacharelado em Sistemas de Informação · IFG Câmpus Goiânia",
+    "semestre": "SEMESTRE 2026/2",
+    "local": "Auditório Demartim Bezerra & Transmissão YouTube IFG",
     "instituicao": "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS"
   },
   "palestras": [
     {
       "id": "01",
+      "titulo": "ENTRE A TECNOLOGIA E O DIREITO: ESCOLHAS E CAMINHOS DE CARREIRA NO SERVIÇO PÚBLICO",
+      "palestrante": {
+        "nome": "FELIPE OTTONI",
+        "cargo": "Procurador do Estado",
+        "bio": "Procurador do Estado, lotado na Coordenação-Geral. Bacharel em Sistemas de Informação. Bacharel em Direito. MBA em Gestão da Tecnologia da Informação. MBA em Finanças, com ênfase em Mercado de Capitais. Especialista em Direito Público.",
+        "foto_url": "https://drive.google.com/file/d/13_LaJ9MhvRXsAFzGR52610LQWwkiAU3l/view?usp=drive_link"
+      },
+      "tags": [
+        "CARREIRA",
+        "DIREITO",
+        "SERVIÇO PÚBLICO"
+      ],
+      "data": "28 SET",
+      "dia_semana": "SEG.",
+      "horario": "19:00",
+      "local": "Auditório Demartim Bezerra (IFG Goiânia)",
+      "descricao": "01º Encontro - 2026. Reflexões sobre a interseção entre o direito e a tecnologia, detalhando as escolhas e caminhos para a carreira no serviço público.",
+      "links": {
+        "inscricao": "",
+        "material": ""
+      }
+    },
+    {
+      "id": "02",
+      "titulo": "PROJETOS DE DADOS E INOVAÇÃO NA SAÚDE PÚBLICA",
+      "palestrante": {
+        "nome": "CARLOS GONÇALVES TIBIRIÇÁ",
+        "cargo": "Analista na Gerência de Inovação",
+        "bio": "Mestre em Ciência da Computação e Analista na Gerência de Inovação. Especialista em BI, Data Science, Inteligência Artificial e Governança de Dados, com foco em interoperabilidade na saúde.",
+        "foto_url": "/src/assets/images/speaker_carlos_tibirica.jpg"
+      },
+      "tags": [
+        "DADOS",
+        "INOVAÇÃO",
+        "SAÚDE PÚBLICA"
+      ],
+      "data": "05 OUT",
+      "dia_semana": "SEG.",
+      "horario": "19:00",
+      "local": "Auditório Demartim Bezerra (IFG Goiânia)",
+      "descricao": "02º Encontro - 2026. Abordagem sobre o desenvolvimento e os impactos dos projetos de dados, BI e Inteligência Artificial na interoperabilidade e inovação da saúde pública.",
+      "links": {
+        "inscricao": "",
+        "material": ""
+      }
+    },
+    {
+      "id": "03",
+      "titulo": "QUALIDADE DE SOFTWARE NA PRÁTICA: CARREIRA, TESTES E OS DESAFIOS DE QA",
+      "palestrante": {
+        "nome": "GABRIEL LAUREANO",
+        "cargo": "QA Engineer",
+        "bio": "Mais de 5 anos atuando como QA Engineer, com experiência em estratégia de testes, automação e qualidade de software. Bacharel em Ciência da Computação pela PUC Goiás, com certificações ISTQB (CTFL, CT-TAS e CTAL-TM).",
+        "foto_url": "/src/assets/images/speaker_gabriel_laureano.jpg"
+      },
+      "tags": [
+        "QA",
+        "TESTES",
+        "QUALIDADE"
+      ],
+      "data": "19 OUT",
+      "dia_semana": "SEG.",
+      "horario": "19:00",
+      "local": "Auditório Demartim Bezerra (IFG Goiânia)",
+      "descricao": "03º Encontro - 2026. Um mergulho prático sobre a carreira de QA, explorando estratégias de testes, automação e os reais desafios enfrentados na garantia de qualidade de software no mercado.",
+      "links": {
+        "inscricao": "",
+        "material": ""
+      }
+    },
+    {
+      "id": "04",
+      "titulo": "ALÉM DO CÓDIGO: OS PILARES DA ENGENHARIA DE SOFTWARE, CULTURA DEVOPS E O FUTURO DA PROFISSÃO",
+      "palestrante": {
+        "nome": "JOSÉ CLÁUDIO DA SILVA NETO",
+        "cargo": "Tech Lead em DevOps e Engenheiro de Software Sênior",
+        "bio": "Tech Lead em DevOps e Engenheiro de Software Sênior. Atua em cultura DevOps, AWS, Observabilidade e CI/CD em sistemas financeiros. Tecnólogo em ADS pela UEG, com 10 anos de experiência em desenvolvimento.",
+        "foto_url": "/src/assets/images/speaker_jose_claudio.jpg"
+      },
+      "tags": [
+        "DEVOPS",
+        "ENGENHARIA",
+        "CLOUD"
+      ],
+      "data": "09 NOV",
+      "dia_semana": "SEG.",
+      "horario": "19:00",
+      "local": "Auditório Demartim Bezerra (IFG Goiânia)",
+      "descricao": "04º Encontro - 2026. Discussão aprofundada sobre os fundamentos que vão além da programação, incluindo a adoção da cultura DevOps, pipelines de CI/CD e as perspectivas para o futuro da engenharia de software.",
+      "links": {
+        "inscricao": "",
+        "material": ""
+      }
+    },
+    {
+      "id": "05",
       "titulo": "ENG. DE SOFTWARE NO SETOR CORPORATIVO",
       "palestrante": {
         "nome": "ANA SILVA",
@@ -34,7 +130,7 @@
       }
     },
     {
-      "id": "02",
+      "id": "06",
       "titulo": "ARQUITETURAS CLOUD & MICROSSERVIÇOS RESILIENTES",
       "palestrante": {
         "nome": "MARCOS OLIVEIRA",
@@ -58,7 +154,7 @@
       }
     },
     {
-      "id": "03",
+      "id": "07",
       "titulo": "IA GENERATIVA & ENGENHARIA DE PRODUTOS REAIS",
       "palestrante": {
         "nome": "DRA. BEATRIZ MENDES",
@@ -74,7 +170,7 @@
       "data": "04 DEZ",
       "dia_semana": "SEX.",
       "horario": "19:00",
-      "local": "Auditório Demartin Bizerra",
+      "local": "Auditório Demartim Bezerra",
       "descricao": "Saindo do hype: implementação real de pipelines com LLMs, agentes autônomos, fine-tuning orientado a contexto específico e os desafios éticos e regulatórios da inteligência artificial no Brasil.",
       "links": {
         "inscricao": "https://forms.gle/exemplo-beatriz-ia-2026",
@@ -82,7 +178,7 @@
       }
     },
     {
-      "id": "04",
+      "id": "08",
       "titulo": "DESIGN SYSTEM & FRONTEND DE ALTA ESCALA",
       "palestrante": {
         "nome": "LUCAS FERREIRA",
@@ -106,7 +202,7 @@
       }
     },
     {
-      "id": "05",
+      "id": "09",
       "titulo": "DEFESA CIBERNÉTICA & SEGURANÇA NA NUVEM",
       "palestrante": {
         "nome": "CAMILA ROCHA",
@@ -130,7 +226,7 @@
       }
     },
     {
-      "id": "06",
+      "id": "10",
       "titulo": "CARREIRA GLOBAL: DO IFG PARA O MERCADO EXTERIOR",
       "palestrante": {
         "nome": "GABRIEL SOUZA & CONVIDADOS",
