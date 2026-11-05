@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IFG Goiânia - Ciclo de Conversas de Carreira 2026</title>
+  <title>Gestão de Carreira | IFG - Agenda de Palestras 2026</title>
   
   <!-- Fontes Google: Archivo Black e Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -416,9 +416,15 @@
     .card-actions {
       padding: 14px;
       background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-buttons-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn {
@@ -457,6 +463,39 @@
 
     .btn-secondary:hover:not(:disabled):not(.btn-disabled) {
       background: #F9F9F9;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--ink-black);
+    }
+
+    /* BOTÕES DE ADICIONAR À AGENDA / CALENDÁRIO */
+    .calendar-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-calendar {
+      background: #FFFFFF;
+      color: var(--ink-black);
+      font-size: 10px;
+      padding: 7px 8px;
+    }
+
+    .btn-calendar:hover {
+      background: #FFF9E6;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--ink-black);
+    }
+
+    .btn-google-cal {
+      background: #F4EFEB;
+      color: var(--ink-black);
+      font-size: 10px;
+      padding: 7px 8px;
+    }
+
+    .btn-google-cal:hover {
+      background: #E8F0FE;
       transform: translate(-1px, -1px);
       box-shadow: 3px 3px 0px var(--ink-black);
     }
@@ -532,9 +571,9 @@
     <div class="top-strip">
       <div>
         <span class="top-strip-tag"></span>
-        <span>IFG · CÂMPUS GOIÂNIA</span>
+        <span>IFG · CÂMPUS GOIÂNIA · SISTEMAS DE INFORMAÇÃO</span>
       </div>
-      <div id="header-periodo">SEMESTRE 2026/2</div>
+      <div id="header-periodo">SEMESTRE 2026/1</div>
     </div>
     <div class="navbar-inner">
       <div class="brand-lockup">
@@ -556,7 +595,7 @@
         Encontros técnicos e palestras de liderança com profissionais e especialistas do mercado de tecnologia.
       </p>
       <div class="hero-badges">
-        <span class="hero-badge-item">📍 Auditório Central</span>
+        <span class="hero-badge-item">📍 Auditório Central & Transmissão Online</span>
         <span class="hero-badge-item">🎓 Certificado Complementar</span>
         <span class="hero-badge-item">⚡ 100% Gratuito</span>
       </div>
@@ -595,20 +634,16 @@
        ========================================================================= -->
   <script>
     // OBJETO JSON DE CONFIGURAÇÃO (siteData)
-    // Para atualizar a programação, altere única e exclusivamente os dados abaixo:
+    // Para alterar a agenda completa do evento, edite única e exclusivamente este objeto abaixo:
     const siteData = {
-  "site_metadata": {
-    "titulo_pagina": "Gestão de Carreira | IFG",
-    "favicon_url": "assets/favicon.ico",
-    "logo_url": "assets/logo-ifg-brutal.svg",
-    "hero_titulo": "CARREIRAS EM TI 2026",
-    "subtitulo": "Encontros de Gestão de Carreira · Bacharelado em Sistemas de Informação · IFG Câmpus Goiânia",
-    "semestre": "SEMESTRE 2026/2",
-    "local": "Auditório Demartin Bizerra",
-    "instituicao": "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS"
-  },
-  "palestras": [
-    {
+      "site_metadata": {
+        "titulo_pagina": "Gestão de Carreira | IFG",
+        "favicon_url": "assets/favicon.ico",
+        "logo_url": "assets/logo-ifg-brutal.svg",
+        "hero_titulo": "AGENDA DE PALESTRAS 2026"
+      },
+      "palestras": [
+        {
       "id": "01",
       "titulo": "ENTRE A TECNOLOGIA E O DIREITO: ESCOLHAS E CAMINHOS DE CARREIRA NO SERVIÇO PÚBLICO",
       "palestrante": {
@@ -704,8 +739,8 @@
         "material": ""
       }
     }
-  ]
-};
+      ]
+    };
 
     // Paleta de cores para os adesivos das tags
     const tagColorPalette = {
@@ -724,7 +759,7 @@
     let selectedTag = "TODAS";
     let searchQuery = "";
 
-    // FUNÇÃO PRINCIPAL DE RENDERIZAÇÃO
+    // FUNÇÃO DE RENDERIZAÇÃO PRINCIPAL (100% JSON-DRIVEN)
     function renderApp() {
       // 1. Atualizar Título e Metadados do Topo
       const meta = siteData.site_metadata || {};
@@ -738,14 +773,14 @@
         if (heroTitleEl) heroTitleEl.textContent = meta.hero_titulo;
       }
 
-      // 2. Extrair Tags Únicas e Gerar os Filtros
+      // 2. Extrair Tags Únicas e Renderizar Filtros
       renderTagFilters();
 
       // 3. Filtrar e Renderizar os Cards
       renderCards();
     }
 
-    // GERAÇÃO DOS BOTÕES DE FILTRO POR TAG
+    // GERAÇÃO DOS BOTÕES DE FILTRO DE TAG
     function renderTagFilters() {
       const container = document.getElementById('tags-container');
       if (!container) return;
@@ -862,15 +897,103 @@
             </div>
           </div>
 
-          <!-- BOTÕES NA BASE DO CARD -->
+          <!-- BOTÕES NA BASE DO CARD (INSCRIÇÃO/MATERIAL + AGENDA) -->
           <div class="card-actions">
-            ${inscricaoBtn}
-            ${materialBtn}
+            <div class="card-buttons-row">
+              ${inscricaoBtn}
+              ${materialBtn}
+            </div>
+            <div class="calendar-actions">
+              <button class="btn btn-calendar" onclick="downloadIcs('${palestra.id}')" title="Baixar arquivo de agenda para Apple Calendar, Outlook ou celular">
+                📅 Salvar (.ics)
+              </button>
+              <button class="btn btn-google-cal" onclick="addToGoogleCalendar('${palestra.id}')" title="Adicionar diretamente no Google Agenda">
+                + Google Agenda
+              </button>
+            </div>
           </div>
         `;
 
         grid.appendChild(card);
       });
+    }
+
+    // FUNÇÕES DE SINCRONIZAÇÃO COM A AGENDA
+    function getPalestraById(id) {
+      return (siteData.palestras || []).find(p => String(p.id) === String(id));
+    }
+
+    // 1. Download do arquivo universal iCalendar (.ics)
+    function downloadIcs(id) {
+      const p = getPalestraById(id);
+      if (!p) return;
+
+      const title = "Palestra IFG: " + p.titulo;
+      const speakerName = (p.palestrante && p.palestrante.nome) ? p.palestrante.nome : "Convidado";
+      const description = "Palestrante: " + speakerName + " | Horário: " + (p.horario || "19:00") + " | Disciplina de Gestão de Carreira em TI - IFG Sistemas de Informação";
+      const location = "Auditório Demartin Bizerra - IFG Câmpus Goiânia";
+
+      const icsLines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//IFG//BSI Palestras 2026//PT",
+        "CALSCALE:GREGORIAN",
+        "BEGIN:VEVENT",
+        "SUMMARY:" + title.replace(/\n/g, " "),
+        "DESCRIPTION:" + description.replace(/\n/g, " "),
+        "LOCATION:" + location,
+        "STATUS:CONFIRMED",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsLines], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", `palestra-ifg-${p.id}.ics`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    // 2. Abertura direta no Google Agenda
+    function addToGoogleCalendar(id) {
+      const p = getPalestraById(id);
+      if (!p) return;
+
+      const title = encodeURIComponent("Palestra IFG: " + p.titulo);
+      const speakerName = (p.palestrante && p.palestrante.nome) ? p.palestrante.nome : "Convidado";
+      const details = encodeURIComponent("Palestrante: " + speakerName + " | Horário: " + (p.horario || "19:00") + " | IFG Sistemas de Informação");
+      const location = encodeURIComponent("Auditório Demartin Bizerra - IFG Câmpus Goiânia");
+
+      // Mapeamento de meses para gerar data precisa no Google Agenda
+      const meses = {
+        "JAN": "01", "FEV": "02", "MAR": "03", "ABR": "04",
+        "MAI": "05", "JUN": "06", "JUL": "07", "AGO": "08",
+        "SET": "09", "OUT": "10", "NOV": "11", "DEZ": "12"
+      };
+
+      let startParam = "20261120T190000";
+      let endParam = "20261120T210000";
+
+      if (p.data) {
+        const parts = p.data.trim().split(" ");
+        if (parts.length >= 2) {
+          const dia = parts[0].padStart(2, "0");
+          const mesStr = parts[1].toUpperCase();
+          const mes = meses[mesStr] || "11";
+          const ano = mesStr === "JAN" ? "2027" : "2026";
+          const horaLimpa = (p.horario || "19:00").replace(":", "").padStart(4, "0");
+          startParam = `${ano}${mes}${dia}T${horaLimpa}00`;
+          const horaFimNum = (parseInt(horaLimpa.substring(0, 2), 10) + 2).toString().padStart(2, "0");
+          endParam = `${ano}${mes}${dia}T${horaFimNum}${horaLimpa.substring(2, 4)}00`;
+        }
+      }
+
+      const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startParam}/${endParam}`;
+      window.open(googleUrl, "_blank", "noopener,noreferrer");
     }
 
     // MONITORAMENTO DA BARRA DE BUSCA
