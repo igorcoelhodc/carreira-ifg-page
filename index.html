@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestão de Carreira | IFG</title>
+  <title>Gestão de Carreira | IFG - Agenda de Palestras 2026</title>
+  
+  <!-- Fontes Google: Archivo Black e Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     /* =========================================================================
-       DESIGN SYSTEM: NEO-BRUTALISMO ACADÊMICO (IFG SISTEMAS DE INFORMAÇÃO)
+       DESIGN SYSTEM: NEO-BRUTALISMO ACADÊMICO
        ========================================================================= */
     :root {
       --bg-page: #F4EFEB;
       --card-bg: #FFFFFF;
       --ink-black: #000000;
-      --accent-mustard: #DCA855;
-      --accent-blue: #8ECAE6;
-      --accent-lilac: #D8B4E2;
-      --accent-mint: #B7E4C7;
-      --accent-coral: #FFB5A7;
+      --tag-mustard: #DCA855;
+      --tag-blue: #8ECAE6;
+      --tag-lilac: #D8B4E2;
+      --tag-mint: #B7E4C7;
+      --tag-coral: #FFB5A7;
       --disabled-bg: #E5E5E5;
       --disabled-text: #666666;
     }
@@ -36,8 +39,11 @@
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* BARRA SUPERIOR E CABEÇALHO */
     header {
       background-color: var(--card-bg);
       border-bottom: 3px solid var(--ink-black);
@@ -48,14 +54,24 @@
 
     .top-strip {
       background: var(--ink-black);
-      color: #fff;
+      color: #FFFFFF;
       padding: 6px 16px;
       font-size: 11px;
       font-family: monospace;
       font-weight: 700;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .top-strip-tag {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--tag-mustard);
+      margin-right: 6px;
     }
 
     .navbar-inner {
@@ -65,6 +81,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .brand-lockup {
@@ -74,12 +91,12 @@
     }
 
     .brand-badge {
-      background: var(--accent-mustard);
+      background: var(--tag-mustard);
       border: 2px solid var(--ink-black);
       font-family: 'Archivo Black', sans-serif;
       font-size: 18px;
       padding: 6px 10px;
-      box-shadow: 2px 2px 0px var(--ink-black);
+      box-shadow: 3px 3px 0px var(--ink-black);
     }
 
     .brand-title {
@@ -87,39 +104,164 @@
       font-size: 18px;
       text-transform: uppercase;
       line-height: 1.1;
+      letter-spacing: -0.02em;
     }
 
+    .brand-sub {
+      font-size: 11px;
+      font-family: monospace;
+      font-weight: 700;
+      color: #555555;
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    /* SESSÃO HERO (PÔSTER / TICKET DE EVENTO) */
     .hero-container {
       max-width: 1200px;
-      margin: 24px auto;
+      margin: 28px auto 16px;
       padding: 0 20px;
+      width: 100%;
     }
 
     .hero-card {
-      background: #fff;
+      background: #FFFFFF;
       border: 3px solid var(--ink-black);
       border-radius: 12px;
       padding: 28px;
-      box-shadow: 4px 4px 0px var(--ink-black);
-      margin-bottom: 24px;
+      box-shadow: 5px 5px 0px var(--ink-black);
+      position: relative;
+    }
+
+    .hero-kicker {
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 800;
+      background: var(--tag-mustard);
+      display: inline-block;
+      padding: 3px 10px;
+      border: 2px solid var(--ink-black);
+      border-radius: 6px;
+      box-shadow: 2px 2px 0px var(--ink-black);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .hero-title {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
+      font-size: clamp(28px, 4.5vw, 48px);
       text-transform: uppercase;
-      line-height: 1.1;
-      margin: 8px 0 12px;
+      line-height: 1.05;
+      margin: 12px 0 10px;
+      letter-spacing: -0.02em;
     }
 
-    /* GRID RESPONSIVO MOBILE-FIRST */
+    .hero-desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333333;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .hero-badge-item {
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border: 1.5px solid var(--ink-black);
+      border-radius: 6px;
+      background: var(--bg-page);
+      text-transform: uppercase;
+    }
+
+    /* FILTROS E PESQUISA */
+    .controls-wrapper {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+      padding: 0 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .controls-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-input {
+      padding: 10px 14px;
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #FFFFFF;
+      border: 2px solid var(--ink-black);
+      border-radius: 8px;
+      box-shadow: 3px 3px 0px var(--ink-black);
+      outline: none;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .search-input:focus {
+      background: #FFFFFA;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-filter-btn {
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      border: 1.5px solid var(--ink-black);
+      border-radius: 6px;
+      background: #FFFFFF;
+      color: var(--ink-black);
+      box-shadow: 2px 2px 0px var(--ink-black);
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .tag-filter-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--ink-black);
+    }
+
+    .tag-filter-btn.active {
+      background: var(--ink-black);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    /* GRID RESPONSIVO (MOBILE-FIRST) */
     #grid-eventos {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px 48px;
+      padding: 0 20px 60px;
+      width: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 28px;
     }
 
     @media (min-width: 768px) {
@@ -134,7 +276,7 @@
       }
     }
 
-    /* CARD NEO-BRUTALISTA DE PALESTRA */
+    /* CARDS NEO-BRUTALISTAS DE PALESTRA */
     .lecture-card {
       background-color: var(--card-bg);
       border: 2px solid var(--ink-black);
@@ -152,11 +294,12 @@
       box-shadow: 6px 6px 0px var(--ink-black);
     }
 
+    /* Topo do card com foto cobrindo largura total */
     .card-photo-wrapper {
       position: relative;
       width: 100%;
-      height: 220px;
-      background-color: #111;
+      height: 230px;
+      background-color: #111111;
       border-bottom: 2px solid var(--ink-black);
       overflow: hidden;
     }
@@ -165,12 +308,31 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
+      display: block;
     }
 
+    .card-number {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--ink-black);
+      color: #FFFFFF;
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      z-index: 5;
+    }
+
+    /* Tags tipo adesivo sobrepostas no canto inferior esquerdo */
     .card-tags {
       position: absolute;
       bottom: 10px;
       left: 10px;
+      right: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -181,32 +343,20 @@
       display: inline-block;
       padding: 3px 8px;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       border: 1.5px solid var(--ink-black);
-      border-radius: 6px;
-      background: var(--accent-mustard);
-      color: #000;
-      box-shadow: 1px 1px 0px var(--ink-black);
+      border-radius: 5px;
+      background: var(--tag-mustard);
+      color: var(--ink-black);
+      box-shadow: 2px 2px 0px var(--ink-black);
     }
 
-    .card-number {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--ink-black);
-      color: #fff;
-      font-family: monospace;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(255,255,255,0.4);
-    }
-
+    /* Seções internas do card separadas com linhas pretas finas */
     .card-info-section {
       padding: 16px;
       border-bottom: 2px solid var(--ink-black);
+      background: #FFFFFF;
     }
 
     .card-title {
@@ -214,6 +364,7 @@
       font-size: 16px;
       text-transform: uppercase;
       line-height: 1.25;
+      letter-spacing: -0.01em;
       margin-bottom: 6px;
     }
 
@@ -221,10 +372,10 @@
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
-      color: #333;
+      color: #222222;
     }
 
-    /* GRADE TABULAR INTERNA ESTILO TICKET DE CONCERTO */
+    /* GRADE TABULAR TICKET DE CONCERTO (DATA GRANDE, DIA, HORÁRIO) */
     .ticket-table {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -246,21 +397,22 @@
     }
 
     .ticket-label {
-      font-size: 9px;
+      font-size: 10px;
       font-family: monospace;
       font-weight: 700;
-      color: #666;
+      color: #666666;
       text-transform: uppercase;
     }
 
     .ticket-value {
       font-family: 'Archivo Black', sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       text-transform: uppercase;
       margin-top: 2px;
+      letter-spacing: -0.01em;
     }
 
-    /* BOTÕES DA BASE E REGRA DE LINKS */
+    /* BOTÕES NA BASE DO CARD */
     .card-actions {
       padding: 14px;
       background: var(--bg-page);
@@ -273,7 +425,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 12px;
+      padding: 9px 12px;
       font-family: monospace;
       font-size: 11px;
       font-weight: 800;
@@ -283,28 +435,30 @@
       border-radius: 6px;
       box-shadow: 2px 2px 0px var(--ink-black);
       cursor: pointer;
-      transition: all 0.1s;
+      transition: all 0.1s ease;
+      text-align: center;
     }
 
     .btn-primary {
       background: var(--ink-black);
-      color: #fff;
+      color: #FFFFFF;
     }
 
-    .btn-primary:hover {
-      background: #222;
+    .btn-primary:hover:not(:disabled):not(.btn-disabled) {
+      background: #222222;
       transform: translate(-1px, -1px);
       box-shadow: 3px 3px 0px var(--ink-black);
     }
 
     .btn-secondary {
-      background: #fff;
+      background: #FFFFFF;
       color: var(--ink-black);
     }
 
-    .btn-secondary:hover {
-      background: #f0f0f0;
+    .btn-secondary:hover:not(:disabled):not(.btn-disabled) {
+      background: #F9F9F9;
       transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--ink-black);
     }
 
     /* REGRA MANDATÓRIA DE LINKS VAZIOS: .btn-disabled */
@@ -312,220 +466,263 @@
     button[disabled],
     a[disabled] {
       cursor: not-allowed !important;
-      opacity: 0.55 !important;
+      opacity: 0.58 !important;
       pointer-events: none !important;
       background-color: var(--disabled-bg) !important;
       color: var(--disabled-text) !important;
       border-color: var(--ink-black) !important;
       background-image: repeating-linear-gradient(
         -45deg,
-        #e5e5e5,
-        #e5e5e5 6px,
-        #dcdcdc 6px,
-        #dcdcdc 12px
+        #E5E5E5,
+        #E5E5E5 6px,
+        #D9D9D9 6px,
+        #D9D9D9 12px
       ) !important;
       box-shadow: 1px 1px 0px var(--ink-black) !important;
       transform: none !important;
       text-decoration: line-through;
     }
+
+    /* RODAPÉ ACADÊMICO */
+    footer {
+      background: #FFFFFF;
+      border-top: 3px solid var(--ink-black);
+      margin-top: auto;
+    }
+
+    .footer-strip {
+      background: var(--ink-black);
+      color: #FFFFFF;
+      padding: 8px 20px;
+      font-size: 11px;
+      font-family: monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: #444444;
+      font-family: monospace;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER PRINCIPAL -->
+
+  <!-- CABEÇALHO DO SITE -->
   <header>
     <div class="top-strip">
-      <span>IFG · CÂMPUS GOIÂNIA · SISTEMAS DE INFORMAÇÃO</span>
-      <span id="header-subtitle">2026/1</span>
+      <div>
+        <span class="top-strip-tag"></span>
+        <span>IFG · CÂMPUS GOIÂNIA · SISTEMAS DE INFORMAÇÃO</span>
+      </div>
+      <div id="header-periodo">SEMESTRE 2026/1</div>
     </div>
     <div class="navbar-inner">
       <div class="brand-lockup">
         <div class="brand-badge">IFG</div>
         <div>
           <h1 class="brand-title" id="page-title">Gestão de Carreira | IFG</h1>
+          <div class="brand-sub">CRONOGRAMA OFICIAL DE PALESTRAS</div>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="hero-container">
+  <!-- PÔSTER PRINCIPAL (HERO) -->
+  <section class="hero-container">
     <div class="hero-card">
-      <div style="font-family: monospace; font-size: 11px; font-weight: bold; background: var(--accent-mustard); display: inline-block; padding: 2px 8px; border: 1.5px solid #000; border-radius: 4px;">
-        AGENDA OFICIAL
-      </div>
+      <span class="hero-kicker">DISCIPLINA ACADÊMICA</span>
       <h2 class="hero-title" id="hero-title">AGENDA DE PALESTRAS 2026</h2>
-      <p style="font-size: 14px; color: #444;">
-        Encontros técnicos e trajetórias de carreira organizados para os acadêmicos de Sistemas de Informação.
+      <p class="hero-desc">
+        Encontros técnicos e palestras de liderança com profissionais e especialistas do mercado de tecnologia.
       </p>
+      <div class="hero-badges">
+        <span class="hero-badge-item">📍 Auditório Central & Transmissão Online</span>
+        <span class="hero-badge-item">🎓 Certificado Complementar</span>
+        <span class="hero-badge-item">⚡ 100% Gratuito</span>
+      </div>
     </div>
+  </section>
+
+  <!-- BARRA DE PESQUISA E FILTROS -->
+  <div class="controls-wrapper">
+    <input 
+      type="text" 
+      id="search-input" 
+      class="search-input" 
+      placeholder="BUSCAR PALESTRANTE OU TÍTULO..."
+      aria-label="Buscar palestras"
+    />
+    <div class="tags-container" id="tags-container"></div>
   </div>
 
-  <!-- CONTAINER PRINCIPAL DOS CARDS -->
+  <!-- CONTAINER DINÂMICO DOS CARDS (GRID DE EVENTOS) -->
   <main id="grid-eventos"></main>
 
-  <!-- JAVASCRIPT INTEGRADO (100% JSON-DRIVEN) -->
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-strip">
+      <span>INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS</span>
+      <span>BACHARELADO EM SISTEMAS DE INFORMAÇÃO</span>
+    </div>
+    <div class="footer-inner">
+      <div>© 2026 IFG · Gestão de Carreira em TI</div>
+      <div>Design Neo-Brutalismo</div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       JAVASCRIPT: ARQUITETURA 100% ORIENTADA A DADOS (siteData)
+       ========================================================================= -->
   <script>
     // OBJETO JSON DE CONFIGURAÇÃO (siteData)
+    // Para atualizar a programação, altere única e exclusivamente os dados abaixo:
     const siteData = {
-  "site_metadata": {
-    "titulo_pagina": "Gestão de Carreira | IFG",
-    "favicon_url": "assets/favicon.ico",
-    "logo_url": "assets/logo-ifg-brutal.svg",
-    "hero_titulo": "AGENDA DE PALESTRAS 2026",
-    "subtitulo": "Bacharelado em Sistemas de Informação · IFG Câmpus Goiânia",
-    "semestre": "SEMESTRE 2026/1",
-    "local": "Auditório Demartin Bizerra & Transmissão YouTube IFG",
-    "instituicao": "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS"
-  },
-  "palestras": [
-    {
-      "id": "01",
-      "titulo": "ENG. DE SOFTWARE NO SETOR CORPORATIVO",
-      "palestrante": {
-        "nome": "ANA SILVA",
-        "cargo": "Staff Software Engineer @ Mercado Livre",
-        "bio": "Especialista em microsserviços resilientes, arquitetura distribuída e liderança de engenharia técnica em produtos de alto volume.",
-        "foto_url": "/src/assets/images/speaker_ana_silva_1793915094803.jpg"
+      "site_metadata": {
+        "titulo_pagina": "Gestão de Carreira | IFG",
+        "favicon_url": "assets/favicon.ico",
+        "logo_url": "assets/logo-ifg-brutal.svg",
+        "hero_titulo": "AGENDA DE PALESTRAS 2026"
       },
-      "tags": [
-        "TECNOLOGIA",
-        "CARREIRA"
-      ],
-      "data": "20 NOV",
-      "dia_semana": "SEX.",
-      "horario": "19:00",
-      "local": "Auditório Central (Presencial)",
-      "descricao": "Panorama prático sobre as habilidades que diferenciam engenheiros juniores e plenos em grandes corporações de tecnologia: desde design de código até comunicação com stakeholders e mentoria técnica.",
-      "links": {
-        "inscricao": "https://forms.gle/exemplo-ana-silva-2026",
-        "material": ""
-      }
-    },
-    {
-      "id": "02",
-      "titulo": "ARQUITETURAS CLOUD & MICROSSERVIÇOS RESILIENTES",
-      "palestrante": {
-        "nome": "MARCOS OLIVEIRA",
-        "cargo": "Principal Cloud Architect @ AWS Community Hero",
-        "bio": "Mais de 14 anos desenhando plataformas cloud nativas para fintechs e telecomunicações na América Latina.",
-        "foto_url": "/src/assets/images/speaker_marcos_oliveira_1793915095689.jpg"
-      },
-      "tags": [
-        "CLOUD",
-        "DEVOPS",
-        "ARQUITETURA"
-      ],
-      "data": "27 NOV",
-      "dia_semana": "SEX.",
-      "horario": "19:30",
-      "local": "Auditório Central + Streaming",
-      "descricao": "Como desenhar sistemas distribuídos tolerantes a falhas no mundo real: mensageria assíncrona, observabilidade (OpenTelemetry), rate limiting e estratégias de fallback de baixo custo operacional.",
-      "links": {
-        "inscricao": "https://forms.gle/exemplo-marcos-cloud-2026",
-        "material": "https://github.com/ifg-bsi/arquitetura-cloud-resiliente-2026"
-      }
-    },
-    {
-      "id": "03",
-      "titulo": "IA GENERATIVA & ENGENHARIA DE PRODUTOS REAIS",
-      "palestrante": {
-        "nome": "DRA. BEATRIZ MENDES",
-        "cargo": "Head of Artificial Intelligence @ NeuralSphere Lab",
-        "bio": "Doutora em Ciência da Computação (UFG/IFG), pesquisadora visitante no MILA e consultora de IA generativa para órgãos públicos.",
-        "foto_url": "/src/assets/images/speaker_beatriz_mendes_1793915096993.jpg"
-      },
-      "tags": [
-        "IA & ML",
-        "INOVAÇÃO",
-        "PESQUISA"
-      ],
-      "data": "04 DEZ",
-      "dia_semana": "SEX.",
-      "horario": "19:00",
-      "local": "Auditório Demartin Bizerra",
-      "descricao": "Saindo do hype: implementação real de pipelines com LLMs, agentes autônomos, fine-tuning orientado a contexto específico e os desafios éticos e regulatórios da inteligência artificial no Brasil.",
-      "links": {
-        "inscricao": "https://forms.gle/exemplo-beatriz-ia-2026",
-        "material": ""
-      }
-    },
-    {
-      "id": "04",
-      "titulo": "DESIGN SYSTEM & FRONTEND DE ALTA ESCALA",
-      "palestrante": {
-        "nome": "LUCAS FERREIRA",
-        "cargo": "Design Technologist & Senior Frontend @ Nubank",
-        "bio": "Ex-aluno IFG, atuando na ponte entre design de produto e engenharia de software para dezenas de milhões de usuários diários.",
-        "foto_url": "/src/assets/images/speaker_lucas_ferreira_1793915097252.jpg"
-      },
-      "tags": [
-        "FRONTEND",
-        "UI/UX",
-        "DESIGN"
-      ],
-      "data": "11 DEZ",
-      "dia_semana": "SEX.",
-      "horario": "19:30",
-      "local": "Lab 04 - Informática / Online",
-      "descricao": "A anatomia de um Design System robusto: tokenização semântica, acessibilidade WCAG AA, componentes headless e arquitetura de componentes reutilizáveis que reduzem o débito técnico.",
-      "links": {
-        "inscricao": "https://forms.gle/exemplo-lucas-frontend-2026",
-        "material": "https://github.com/ifg-bsi/design-system-brutal-nubank"
-      }
-    },
-    {
-      "id": "05",
-      "titulo": "DEFESA CIBERNÉTICA & SEGURANÇA NA NUVEM",
-      "palestrante": {
-        "nome": "CAMILA ROCHA",
-        "cargo": "Lead Security Operations & Red Team Researcher",
-        "bio": "Certificada OSCP e CISSP, palestrante na DefCon e Roadsec, especialista em auditoria de segurança de APIs e cloud security posture.",
-        "foto_url": "/src/assets/images/speaker_camila_rocha_1793915098397.jpg"
-      },
-      "tags": [
-        "SEGURANÇA",
-        "CARREIRA",
-        "DEVSECOPS"
-      ],
-      "data": "18 DEZ",
-      "dia_semana": "SEX.",
-      "horario": "19:00",
-      "local": "Auditório Central (Presencial)",
-      "descricao": "Como se destacar na área de cibersegurança: rotina de um analista de segurança, engenharia reversa básica, Threat Modeling em esteiras CI/CD e certificações mais valorizadas internacionalmente.",
-      "links": {
-        "inscricao": "https://forms.gle/exemplo-camila-cybersec-2026",
-        "material": "https://slideshare.net/camila-rocha/defesa-cibernetica-ifg"
-      }
-    },
-    {
-      "id": "06",
-      "titulo": "CARREIRA GLOBAL: DO IFG PARA O MERCADO EXTERIOR",
-      "palestrante": {
-        "nome": "GABRIEL SOUZA & CONVIDADOS",
-        "cargo": "Engenheiros de Software Remotos (EUA / Europa)",
-        "bio": "Mesa-redonda com egressos de Sistemas de Informação do IFG compartilhando trajetórias em empresas estrangeiras.",
-        "foto_url": "/src/assets/images/speaker_marcos_oliveira_1793915095689.jpg"
-      },
-      "tags": [
-        "CARREIRA",
-        "REMOTO",
-        "GLOBAL"
-      ],
-      "data": "15 JAN",
-      "dia_semana": "QUI.",
-      "horario": "19:00",
-      "local": "Transmissão Especial YouTube IFG",
-      "descricao": "Preparação para processos seletivos internacionais em inglês, portfólio técnico no GitHub, regimes de contratação (PJ internacional) e adaptação a fusos horários e culturas assíncronas.",
-      "links": {
-        "inscricao": "",
-        "material": ""
-      }
-    }
-  ]
-};
+      "palestras": [
+        {
+          "id": "01",
+          "titulo": "ENG. DE SOFTWARE NO SETOR CORPORATIVO",
+          "palestrante": {
+            "nome": "ANA SILVA",
+            "foto_url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["TECNOLOGIA", "CARREIRA"],
+          "data": "20 NOV",
+          "dia_semana": "SEX.",
+          "horario": "19:00",
+          "links": {
+            "inscricao": "https://forms.gle/exemplo-ana",
+            "material": "" // Vazio: ativa a classe .btn-disabled
+          }
+        },
+        {
+          "id": "02",
+          "titulo": "ARQUITETURAS CLOUD & MICROSSERVIÇOS RESILIENTES",
+          "palestrante": {
+            "nome": "MARCOS OLIVEIRA",
+            "foto_url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["CLOUD", "DEVOPS"],
+          "data": "27 NOV",
+          "dia_semana": "SEX.",
+          "horario": "19:30",
+          "links": {
+            "inscricao": "https://forms.gle/exemplo-marcos",
+            "material": "https://github.com/exemplo-cloud"
+          }
+        },
+        {
+          "id": "03",
+          "titulo": "IA GENERATIVA & ENGENHARIA DE PRODUTOS REAIS",
+          "palestrante": {
+            "nome": "DRA. BEATRIZ MENDES",
+            "foto_url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["IA & ML", "INOVAÇÃO"],
+          "data": "04 DEZ",
+          "dia_semana": "SEX.",
+          "horario": "19:00",
+          "links": {
+            "inscricao": "https://forms.gle/exemplo-ia",
+            "material": "" // Vazio: ativa a classe .btn-disabled
+          }
+        },
+        {
+          "id": "04",
+          "titulo": "DESIGN SYSTEM & FRONTEND DE ALTA ESCALA",
+          "palestrante": {
+            "nome": "LUCAS FERREIRA",
+            "foto_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["FRONTEND", "UI/UX"],
+          "data": "11 DEZ",
+          "dia_semana": "SEX.",
+          "horario": "19:30",
+          "links": {
+            "inscricao": "https://forms.gle/exemplo-frontend",
+            "material": "https://github.com/exemplo-design-system"
+          }
+        },
+        {
+          "id": "05",
+          "titulo": "DEFESA CIBERNÉTICA & SEGURANÇA NA NUVEM",
+          "palestrante": {
+            "nome": "CAMILA ROCHA",
+            "foto_url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["SEGURANÇA", "CARREIRA"],
+          "data": "18 DEZ",
+          "dia_semana": "SEX.",
+          "horario": "19:00",
+          "links": {
+            "inscricao": "https://forms.gle/exemplo-seguranca",
+            "material": "https://slides.com/exemplo"
+          }
+        },
+        {
+          "id": "06",
+          "titulo": "CARREIRA GLOBAL: DO IFG PARA O MERCADO EXTERIOR",
+          "palestrante": {
+            "nome": "GABRIEL SOUZA & CONVIDADOS",
+            "foto_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+          },
+          "tags": ["CARREIRA", "REMOTO"],
+          "data": "15 JAN",
+          "dia_semana": "QUI.",
+          "horario": "19:00",
+          "links": {
+            "inscricao": "", // Ambas vazias: testa duplo estado desabilitado
+            "material": ""
+          }
+        }
+      ]
+    };
+
+    // Paleta de cores para os adesivos das tags
+    const tagColorPalette = {
+      "TECNOLOGIA": "#DCA855",
+      "CARREIRA": "#8ECAE6",
+      "CLOUD": "#D8B4E2",
+      "DEVOPS": "#B7E4C7",
+      "IA & ML": "#FFB5A7",
+      "INOVAÇÃO": "#DCA855",
+      "FRONTEND": "#E2ECE9",
+      "UI/UX": "#8ECAE6",
+      "SEGURANÇA": "#FFE6A7",
+      "REMOTO": "#D8B4E2"
+    };
+
+    let selectedTag = "TODAS";
+    let searchQuery = "";
 
     // FUNÇÃO PRINCIPAL DE RENDERIZAÇÃO
     function renderApp() {
-      // 1. Atualizar Metadados
+      // 1. Atualizar Título e Metadados do Topo
       const meta = siteData.site_metadata || {};
       if (meta.titulo_pagina) {
         document.title = meta.titulo_pagina;
@@ -537,54 +734,121 @@
         if (heroTitleEl) heroTitleEl.textContent = meta.hero_titulo;
       }
 
-      // 2. Renderizar Grade de Eventos
+      // 2. Extrair Tags Únicas e Gerar os Filtros
+      renderTagFilters();
+
+      // 3. Filtrar e Renderizar os Cards
+      renderCards();
+    }
+
+    // GERAÇÃO DOS BOTÕES DE FILTRO POR TAG
+    function renderTagFilters() {
+      const container = document.getElementById('tags-container');
+      if (!container) return;
+
+      const tagSet = new Set();
+      (siteData.palestras || []).forEach(p => {
+        (p.tags || []).forEach(t => tagSet.add(t.toUpperCase().trim()));
+      });
+
+      const uniqueTags = ["TODAS", ...Array.from(tagSet).sort()];
+      container.innerHTML = "";
+
+      uniqueTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className = `tag-filter-btn ${selectedTag === tag ? 'active' : ''}`;
+        btn.textContent = tag;
+        btn.onclick = () => {
+          selectedTag = tag;
+          renderTagFilters();
+          renderCards();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    // RENDERIZAÇÃO DA GRADE DE EVENTOS (CARD COM REGRAS E BORDAS INTERNAS)
+    function renderCards() {
       const grid = document.getElementById('grid-eventos');
       if (!grid) return;
-      grid.innerHTML = '';
+      grid.innerHTML = "";
 
       const palestras = siteData.palestras || [];
-      palestras.forEach((palestra) => {
+      const query = searchQuery.trim().toLowerCase();
+
+      // Filtragem por Tag e Termo de Busca
+      const filtradas = palestras.filter(p => {
+        const matchTag = selectedTag === "TODAS" || (p.tags && p.tags.some(t => t.toUpperCase() === selectedTag));
+        if (!matchTag) return false;
+
+        if (!query) return true;
+        const matchTitle = (p.titulo || '').toLowerCase().includes(query);
+        const matchSpeaker = (p.palestrante && p.palestrante.nome || '').toLowerCase().includes(query);
+        return matchTitle || matchSpeaker;
+      });
+
+      if (filtradas.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; background:#fff; border:2px solid #000; border-radius:12px; padding:32px; text-align:center; box-shadow:4px 4px 0 #000;">
+            <h3 style="font-family:'Archivo Black',sans-serif; text-transform:uppercase;">Nenhuma palestra encontrada</h3>
+            <p style="font-size:12px; font-family:monospace; margin-top:8px; color:#555;">Nenhum evento corresponde ao filtro selecionado.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtradas.forEach(palestra => {
         const card = document.createElement('article');
         card.className = 'lecture-card';
 
-        // Tags badges
-        const tagsHtml = (palestra.tags || [])
-          .map(tag => `<span class="tag-badge">${tag.toUpperCase()}</span>`)
-          .join('');
+        // 1. Tags tipo adesivo
+        const tagsHtml = (palestra.tags || []).map(tag => {
+          const cleanTag = tag.toUpperCase().trim();
+          const color = tagColorPalette[cleanTag] || '#DCA855';
+          return `<span class="tag-badge" style="background-color: ${color};">${cleanTag}</span>`;
+        }).join('');
 
-        // Validação da Regra de Links (Inscrição)
+        // 2. Regra de Links (Inscrição)
         const inscricaoUrl = (palestra.links && palestra.links.inscricao) ? palestra.links.inscricao.trim() : '';
-        const isInscricaoEmpty = inscricaoUrl === '';
+        const isInscricaoEmpty = inscricaoUrl === "";
         const inscricaoBtn = isInscricaoEmpty
           ? `<button disabled class="btn btn-primary btn-disabled" title="Inscrição encerrada">Inscrição</button>`
           : `<a href="${inscricaoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Inscrição</a>`;
 
-        // Validação da Regra de Links (Material)
+        // 3. Regra de Links (Material)
         const materialUrl = (palestra.links && palestra.links.material) ? palestra.links.material.trim() : '';
-        const isMaterialEmpty = materialUrl === '';
+        const isMaterialEmpty = materialUrl === "";
         const materialBtn = isMaterialEmpty
-          ? `<button disabled class="btn btn-secondary btn-disabled" title="Sem material">Material</button>`
+          ? `<button disabled class="btn btn-secondary btn-disabled" title="Material não disponível">Material</button>`
           : `<a href="${materialUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Material</a>`;
 
-        // Estrutura HTML do Card
+        // 4. Montagem da Estrutura Interna Estilo Ticket
         card.innerHTML = `
+          <!-- TOPO DO CARD: Foto cobrindo a largura total + Adesivos de tags -->
           <div class="card-photo-wrapper">
-            <img class="card-photo" src="${palestra.palestrante.foto_url}" alt="${palestra.palestrante.nome}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'" />
+            <img 
+              class="card-photo" 
+              src="${palestra.palestrante.foto_url}" 
+              alt="${palestra.palestrante.nome}"
+              onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80'" 
+            />
             <div class="card-number">№ ${palestra.id}</div>
             <div class="card-tags">${tagsHtml}</div>
           </div>
 
+          <!-- PARTE DE TEXTO RIGOROSAMENTE SEPARADA POR BORDAS INTERNAS -->
           <div class="card-info-section">
             <h3 class="card-title">${palestra.titulo}</h3>
             <div class="card-speaker">${palestra.palestrante.nome}</div>
           </div>
 
+          <!-- GRADE TABULAR ESTILO TICKET DE CONCERTO IMPRESSO -->
           <div class="ticket-table">
             <div class="ticket-col">
               <span class="ticket-label">Data</span>
               <span class="ticket-value">${palestra.data}</span>
             </div>
-            <div class="ticket-col" style="background:#fff;">
+            <div class="ticket-col" style="background:#FFFFFF;">
               <span class="ticket-label">Dia</span>
               <span class="ticket-value">${palestra.dia_semana}</span>
             </div>
@@ -594,6 +858,7 @@
             </div>
           </div>
 
+          <!-- BOTÕES NA BASE DO CARD -->
           <div class="card-actions">
             ${inscricaoBtn}
             ${materialBtn}
@@ -604,8 +869,18 @@
       });
     }
 
-    // Inicialização ao carregar a página
-    document.addEventListener('DOMContentLoaded', renderApp);
+    // MONITORAMENTO DA BARRA DE BUSCA
+    document.addEventListener('DOMContentLoaded', () => {
+      renderApp();
+
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          renderCards();
+        });
+      }
+    });
   </script>
 </body>
 </html>
