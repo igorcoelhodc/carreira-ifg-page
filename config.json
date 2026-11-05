@@ -1,0 +1,157 @@
+{
+  "site_metadata": {
+    "titulo_pagina": "Gestão de Carreira | IFG",
+    "favicon_url": "assets/favicon.ico",
+    "logo_url": "assets/logo-ifg-brutal.svg",
+    "hero_titulo": "AGENDA DE PALESTRAS 2026",
+    "subtitulo": "Bacharelado em Sistemas de Informação · IFG Câmpus Goiânia",
+    "semestre": "SEMESTRE 2026/1",
+    "local": "Auditório Demartin Bizerra & Transmissão YouTube IFG",
+    "instituicao": "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS"
+  },
+  "palestras": [
+    {
+      "id": "01",
+      "titulo": "ENG. DE SOFTWARE NO SETOR CORPORATIVO",
+      "palestrante": {
+        "nome": "ANA SILVA",
+        "cargo": "Staff Software Engineer @ Mercado Livre",
+        "bio": "Especialista em microsserviços resilientes, arquitetura distribuída e liderança de engenharia técnica em produtos de alto volume.",
+        "foto_url": "/src/assets/images/speaker_ana_silva_1793915094803.jpg"
+      },
+      "tags": [
+        "TECNOLOGIA",
+        "CARREIRA"
+      ],
+      "data": "20 NOV",
+      "dia_semana": "SEX.",
+      "horario": "19:00",
+      "local": "Auditório Central (Presencial)",
+      "descricao": "Panorama prático sobre as habilidades que diferenciam engenheiros juniores e plenos em grandes corporações de tecnologia: desde design de código até comunicação com stakeholders e mentoria técnica.",
+      "links": {
+        "inscricao": "https://forms.gle/exemplo-ana-silva-2026",
+        "material": ""
+      }
+    },
+    {
+      "id": "02",
+      "titulo": "ARQUITETURAS CLOUD & MICROSSERVIÇOS RESILIENTES",
+      "palestrante": {
+        "nome": "MARCOS OLIVEIRA",
+        "cargo": "Principal Cloud Architect @ AWS Community Hero",
+        "bio": "Mais de 14 anos desenhando plataformas cloud nativas para fintechs e telecomunicações na América Latina.",
+        "foto_url": "/src/assets/images/speaker_marcos_oliveira_1793915095689.jpg"
+      },
+      "tags": [
+        "CLOUD",
+        "DEVOPS",
+        "ARQUITETURA"
+      ],
+      "data": "27 NOV",
+      "dia_semana": "SEX.",
+      "horario": "19:30",
+      "local": "Auditório Central + Streaming",
+      "descricao": "Como desenhar sistemas distribuídos tolerantes a falhas no mundo real: mensageria assíncrona, observabilidade (OpenTelemetry), rate limiting e estratégias de fallback de baixo custo operacional.",
+      "links": {
+        "inscricao": "https://forms.gle/exemplo-marcos-cloud-2026",
+        "material": "https://github.com/ifg-bsi/arquitetura-cloud-resiliente-2026"
+      }
+    },
+    {
+      "id": "03",
+      "titulo": "IA GENERATIVA & ENGENHARIA DE PRODUTOS REAIS",
+      "palestrante": {
+        "nome": "DRA. BEATRIZ MENDES",
+        "cargo": "Head of Artificial Intelligence @ NeuralSphere Lab",
+        "bio": "Doutora em Ciência da Computação (UFG/IFG), pesquisadora visitante no MILA e consultora de IA generativa para órgãos públicos.",
+        "foto_url": "/src/assets/images/speaker_beatriz_mendes_1793915096993.jpg"
+      },
+      "tags": [
+        "IA & ML",
+        "INOVAÇÃO",
+        "PESQUISA"
+      ],
+      "data": "04 DEZ",
+      "dia_semana": "SEX.",
+      "horario": "19:00",
+      "local": "Auditório Demartin Bizerra",
+      "descricao": "Saindo do hype: implementação real de pipelines com LLMs, agentes autônomos, fine-tuning orientado a contexto específico e os desafios éticos e regulatórios da inteligência artificial no Brasil.",
+      "links": {
+        "inscricao": "https://forms.gle/exemplo-beatriz-ia-2026",
+        "material": ""
+      }
+    },
+    {
+      "id": "04",
+      "titulo": "DESIGN SYSTEM & FRONTEND DE ALTA ESCALA",
+      "palestrante": {
+        "nome": "LUCAS FERREIRA",
+        "cargo": "Design Technologist & Senior Frontend @ Nubank",
+        "bio": "Ex-aluno IFG, atuando na ponte entre design de produto e engenharia de software para dezenas de milhões de usuários diários.",
+        "foto_url": "/src/assets/images/speaker_lucas_ferreira_1793915097252.jpg"
+      },
+      "tags": [
+        "FRONTEND",
+        "UI/UX",
+        "DESIGN"
+      ],
+      "data": "11 DEZ",
+      "dia_semana": "SEX.",
+      "horario": "19:30",
+      "local": "Lab 04 - Informática / Online",
+      "descricao": "A anatomia de um Design System robusto: tokenização semântica, acessibilidade WCAG AA, componentes headless e arquitetura de componentes reutilizáveis que reduzem o débito técnico.",
+      "links": {
+        "inscricao": "https://forms.gle/exemplo-lucas-frontend-2026",
+        "material": "https://github.com/ifg-bsi/design-system-brutal-nubank"
+      }
+    },
+    {
+      "id": "05",
+      "titulo": "DEFESA CIBERNÉTICA & SEGURANÇA NA NUVEM",
+      "palestrante": {
+        "nome": "CAMILA ROCHA",
+        "cargo": "Lead Security Operations & Red Team Researcher",
+        "bio": "Certificada OSCP e CISSP, palestrante na DefCon e Roadsec, especialista em auditoria de segurança de APIs e cloud security posture.",
+        "foto_url": "/src/assets/images/speaker_camila_rocha_1793915098397.jpg"
+      },
+      "tags": [
+        "SEGURANÇA",
+        "CARREIRA",
+        "DEVSECOPS"
+      ],
+      "data": "18 DEZ",
+      "dia_semana": "SEX.",
+      "horario": "19:00",
+      "local": "Auditório Central (Presencial)",
+      "descricao": "Como se destacar na área de cibersegurança: rotina de um analista de segurança, engenharia reversa básica, Threat Modeling em esteiras CI/CD e certificações mais valorizadas internacionalmente.",
+      "links": {
+        "inscricao": "https://forms.gle/exemplo-camila-cybersec-2026",
+        "material": "https://slideshare.net/camila-rocha/defesa-cibernetica-ifg"
+      }
+    },
+    {
+      "id": "06",
+      "titulo": "CARREIRA GLOBAL: DO IFG PARA O MERCADO EXTERIOR",
+      "palestrante": {
+        "nome": "GABRIEL SOUZA & CONVIDADOS",
+        "cargo": "Engenheiros de Software Remotos (EUA / Europa)",
+        "bio": "Mesa-redonda com egressos de Sistemas de Informação do IFG compartilhando trajetórias em empresas estrangeiras.",
+        "foto_url": "/src/assets/images/speaker_marcos_oliveira_1793915095689.jpg"
+      },
+      "tags": [
+        "CARREIRA",
+        "REMOTO",
+        "GLOBAL"
+      ],
+      "data": "15 JAN",
+      "dia_semana": "QUI.",
+      "horario": "19:00",
+      "local": "Transmissão Especial YouTube IFG",
+      "descricao": "Preparação para processos seletivos internacionais em inglês, portfólio técnico no GitHub, regimes de contratação (PJ internacional) e adaptação a fusos horários e culturas assíncronas.",
+      "links": {
+        "inscricao": "",
+        "material": ""
+      }
+    }
+  ]
+}
